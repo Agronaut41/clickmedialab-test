@@ -1,0 +1,30 @@
+{
+  "name": "clickmedialab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:scss": "sass src/index.scss web/dist/index.css --style=compressed",
+    "build:js": "esbuild src/index.js --outfile=web/dist/index.min.js --minify",
+    "build": "npm run build:scss && npm run build:js",
+    "watch:scss": "sass --watch src/index.scss:web/dist/index.css --style=compressed",
+    "watch:js": "esbuild src/index.js --outfile=web/dist/index.min.js --minify --watch",
+    "watch": "concurrently \"npm run watch:scss\" \"npm run watch:js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agronaut41/clickmedialab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Agronaut41/clickmedialab/issues"
+  },
+  "homepage": "https://github.com/Agronaut41/clickmedialab#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.5",
+    "sass": "^1.89.0"
+  }
+}
