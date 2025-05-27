@@ -1,0 +1,107 @@
+.container {
+    background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header {
+    @extend .container;
+    background: #fff;
+
+    &__top {
+        padding: 8px 0;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: space-between;
+
+        &__location {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        &__icon path {
+            fill: #FF5001;
+        }
+
+        &__text {
+            font-weight: regular;
+            font-size: 14px;
+            line-height: 14px;
+            color: #525252;
+        }
+
+        &__details {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+
+            svg path {
+                fill: #FF5001;
+            }
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    }
+
+    &__main {
+        padding: 4px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .nav {
+            &__list {
+                display: flex;
+                gap: 8px;
+            }
+
+            &__item {
+                font-size: 16px;
+                line-height: 120%;
+                color: #111111;
+                font-weight: medium;
+
+                &:hover {
+                    color: #FF5001;
+                }
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: 12px;
+
+        .meta-badge {
+            border: 1px solid #0082FB;
+            padding: 11px 26px;
+            border-radius: 36px;
+        }
+
+        .button--primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FF5001;
+            color: #fff;
+            padding: 11px 26px;
+            border-radius: 36px;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 120%;
+        }
+    }
+}
+
