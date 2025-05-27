@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="web/dist/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -45,6 +46,10 @@
                     <a href="/" class="header__logo">
                         <img src="assets/images/logo.webp" alt="Click Media Lab Logo" class="header__logo-img">
                     </a>
+                    <button class="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <i class="fa-solid fa-bars menu-icon"></i>
+                        <i class="fa-solid fa-xmark close-icon"></i>
+                    </button>
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__item nav__item--has-dropdown">
@@ -376,4 +381,47 @@
         </div>
     </header>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const nav = document.querySelector('.nav');
+        const dropdownLinks = document.querySelectorAll('.nav__link--dropdown');
+
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Handle dropdown menus on mobile
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = this.closest('.nav__item').querySelector('.nav__dropdown');
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenuButton.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('active');
+                mobileMenuButton.classList.remove('active');
+                document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    });
+</script>
 </html>

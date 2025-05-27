@@ -246,3 +246,220 @@
     }
 }
 
+// Mobile menu button
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    margin-left: auto;
+    order: 2;
+    font-size: 24px;
+    color: #fff;
+    background-color: #013088;
+    border-radius: 2px;
+    
+    .close-icon {
+        display: none;
+    }
+
+    &.active {
+        .menu-icon {
+            display: none;
+        }
+        
+        .close-icon {
+            display: block;
+            color: #FF5001;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .header {
+        &__top {
+            display: none;
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            position: relative;
+
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: #fff;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                order: 3;
+                
+                &.active {
+                    left: 0;
+                }
+
+                &__list {
+                    flex-direction: column;
+                    padding: 20px;
+                    gap: 16px;
+                }
+
+                &__item {
+                    width: 100%;
+
+                    &--has-dropdown {
+                        .nav__link--dropdown {
+                            justify-content: space-between;
+                        }
+                    }
+                }
+
+                &__dropdown {
+                    position: static;
+                    transform: none;
+                    opacity: 1;
+                    visibility: visible;
+                    display: none;
+                    width: 100%;
+                    margin-top: 16px;
+                    box-shadow: none;
+                    border: 1px solid #eee;
+
+                    &.active {
+                        display: flex;
+                    }
+
+                    &-consultation {
+                        width: 100%;
+                        padding: 20px;
+                    }
+
+                    &-services {
+                        &-item {
+                            flex: 1 1 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__actions {
+            .button,
+            .meta-badge {
+                display: none;
+            }
+
+            .meta-badge {
+                padding: 8px 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__content {
+            .nav {
+                &__dropdown {
+                    max-width: 100%;
+                    padding: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        &__top {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+
+                &__details {
+                    gap: 24px;
+                }
+            }
+        }
+
+        &__content {
+            .nav {
+                &__dropdown {
+                    flex-direction: column;
+                    gap: 24px;
+                    overflow-y: auto;
+                    max-height: calc(100vh - 200px);
+
+                    &-services {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 24px;
+
+                        &-item {
+                            flex: 1 1 calc(50% - 12px);
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .header {
+        &__top {
+            .contact-info {
+                &__details {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+            }
+        }
+
+        &__content {
+            .nav {
+                &__dropdown {
+                    padding: 16px;
+
+                    &-consultation {
+                        padding: 16px;
+
+                        &-title {
+                            font-size: 20px;
+                        }
+
+                        &-image {
+                            margin: 30px 0;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
