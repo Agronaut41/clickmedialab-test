@@ -1,0 +1,120 @@
+.main-banner {
+    position: relative;
+    width: 100%;
+    background-image: url('../../assets/images/bg-banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    overflow: hidden;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    &__content {
+        max-width: 600px;
+    }
+
+    &__title,
+    &__description {
+        text-align: left;
+    }
+
+    &__title {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+        margin-bottom: 24px;
+
+        &-highlight {
+            color: #FF5001;
+            display: block;
+        }
+    }
+
+    &__description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #fff;
+        margin-bottom: 16px;
+
+        b {
+            font-weight: 600;
+        }
+    }
+
+    &__button {
+        margin-top: 32px;
+    }
+
+    &__img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    &__button {
+        position: relative;
+        max-width: 600px;
+
+        .button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            border-radius: 0 32px 32px 0;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        background-color: #fff;
+        padding: 13px 20px;
+        border-radius: 32px;
+    }
+
+
+}
+
+@media (max-width: 991px) {
+    .main-banner {
+        padding: 60px 0;
+
+        &__container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &__content {
+            max-width: 100%;
+        }
+
+        &__title {
+            font-size: 36px;
+        }
+
+        &__img {
+            max-width: 400px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .main-banner {
+        padding: 40px 0;
+
+        &__title {
+            font-size: 28px;
+        }
+
+        &__img {
+            max-width: 100%;
+        }
+    }
+}
