@@ -68,13 +68,131 @@
             }
 
             &__item {
+                position: relative;
                 font-size: 16px;
                 line-height: 120%;
                 color: #111111;
                 font-weight: medium;
 
+                &--has-dropdown {
+                    &:hover {
+                        .nav__dropdown {
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translateY(0);
+                        }
+                    }
+                }
+
                 &:hover {
                     color: #FF5001;
+                }
+            }
+
+            &__link {
+                &:hover {
+                    color: #FF5001;
+                }
+        
+                &--dropdown {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    svg {
+                        transition: transform 0.3s ease;
+                    }
+        
+                    &:hover svg {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            &__dropdown {
+                position: absolute;
+                display: flex;
+                gap: 32px;
+                top: 100%;
+                left: 0;
+                min-width: 220px;
+                background: #FAFBFC;
+                border-radius: 8px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                z-index: 100;
+                padding: 16px 0;
+
+                &-consultation {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: #013088;
+                    border-radius: 16px;
+                    padding: 32px 16px;
+                    width: min-content;
+
+                    &-title {
+                        color: #fff;
+                        font-size: 24px;
+                        font-weight: 700;
+                        margin-bottom: 16px;
+                        line-height: normal;
+                    }
+
+                    &-description {
+                        color: #fff;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+
+                    &-image {
+                        margin: 50px 0
+                    }                    
+                    
+                    &-input {
+                        padding: 11px 26px;
+                        border-radius: 36px;
+                        background-color: #fff;
+                        margin-bottom: 8px;
+                    }
+
+                    &-button {
+                        width: 100%;
+                    }
+                }
+                
+                &-services {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    width: 300px;
+                    padding-top: 32px;
+
+                    &-item-header {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        margin-bottom: 16px;
+                    }
+
+                    &-title {
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 700;
+                    }
+
+                    &-list {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                    }
+
+                    &-link {
+                        color: #525252;
+                    }
                 }
             }
         }
@@ -88,19 +206,6 @@
             border: 1px solid #0082FB;
             padding: 11px 26px;
             border-radius: 36px;
-        }
-
-        .button--primary {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #FF5001;
-            color: #fff;
-            padding: 11px 26px;
-            border-radius: 36px;
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 120%;
         }
     }
 }
