@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="web/dist/index.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -715,7 +716,7 @@
                         <img src="https://cdn-ilcpbgd.nitrocdn.com/cJgSbGIAEdkxfzcRRCssjDxHYSpdiDcw/assets/images/optimized/rev-6cc0502/clickmedialab.com/wp-content/uploads/2025/01/image_92-1024x769.webp" alt="Marketing Services 2" class="marketing-services__dinamic-content-item-img" width="500" height="375">
                         <div class="marketing-services__dinamic-content-item-content">
                             <p class="marketing-services__dinamic-content-item-description">
-                               Our content writing services are designed to craft engaging, SEO-optimized content that resonates with your audience. We develop compelling copy for blogs, articles, product descriptions, and web pages that enhance your brand’s voice.
+                               Our content writing services are designed to craft engaging, SEO-optimized content that resonates with your audience. We develop compelling copy for blogs, articles, product descriptions, and web pages that enhance your brand's voice.
                             </p>
                             <p class="marketing-services__dinamic-content-item-description">
                                We focus on creating informative and persuasive content that drives traffic and conversions. Through extensive keyword research, we improve search engine rankings and increase organic visibility. Quality content helps build trust, authority, and long-term relationships with your audience.
@@ -745,7 +746,7 @@
                         <img src="https://cdn-ilcpbgd.nitrocdn.com/cJgSbGIAEdkxfzcRRCssjDxHYSpdiDcw/assets/images/optimized/rev-6cc0502/clickmedialab.com/wp-content/uploads/2025/01/image_95-1024x769.webp" alt="Marketing Services 2" class="marketing-services__dinamic-content-item-img" width="500" height="375">
                         <div class="marketing-services__dinamic-content-item-content">
                             <p class="marketing-services__dinamic-content-item-description">
-                               Click Media Lab’s Conversion Rate Optimization services focus on turning website visitors into paying customers. Our team conducts in-depth analysis and A/B testing to identify potential barriers to conversion and optimize landing pages.
+                               Click Media Lab's Conversion Rate Optimization services focus on turning website visitors into paying customers. Our team conducts in-depth analysis and A/B testing to identify potential barriers to conversion and optimize landing pages.
                             </p>
                             <p class="marketing-services__dinamic-content-item-description">
                                We optimize elements such as call-to-action buttons, forms, and page layouts to improve user engagement and reduce bounce rates. By leveraging heatmaps, user behavior tracking, and analytics, we make data-driven decisions to enhance performance.
@@ -775,7 +776,7 @@
                         <img src="https://cdn-ilcpbgd.nitrocdn.com/cJgSbGIAEdkxfzcRRCssjDxHYSpdiDcw/assets/images/optimized/rev-6cc0502/clickmedialab.com/wp-content/uploads/2025/01/image_99-1024x769.webp" alt="Marketing Services 2" class="marketing-services__dinamic-content-item-img" width="500" height="375">
                         <div class="marketing-services__dinamic-content-item-content">
                             <p class="marketing-services__dinamic-content-item-description">
-                               Click Media Lab provides custom software development services tailored to your business’s unique needs. From enterprise software to cloud-based applications, we utilize the latest technologies to create robust systems that streamline your business processes.
+                               Click Media Lab provides custom software development services tailored to your business's unique needs. From enterprise software to cloud-based applications, we utilize the latest technologies to create robust systems that streamline your business processes.
                             </p>
                             <p class="marketing-services__dinamic-content-item-description">
                                We focus on building intuitive interfaces and seamless integrations with your existing tools and systems. Our development process is agile, allowing for iterative improvements and updates. With ongoing support and maintenance, we ensure your software evolves with your business requirements.
@@ -821,75 +822,4 @@
         </section>
     </main>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const nav = document.querySelector('.nav');
-        const dropdownLinks = document.querySelectorAll('.nav__link--dropdown');
-
-        // Toggle mobile menu
-        mobileMenuButton.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
-        // Handle dropdown menus on mobile
-        dropdownLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const dropdown = this.closest('.nav__item').querySelector('.nav__dropdown');
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                nav.classList.remove('active');
-                mobileMenuButton.classList.remove('active');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                nav.classList.remove('active');
-                mobileMenuButton.classList.remove('active');
-                document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        });
-
-        // Handle marketing services items click
-        const marketingServicesItems = document.querySelectorAll('.marketing-services__item');
-        const marketingServicesDinamicContentItems = document.querySelectorAll('.marketing-services__dinamic-content-item');
-
-        marketingServicesItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // Remove active class from all items
-                marketingServicesItems.forEach(i => i.classList.remove('active'));
-                
-                // Add active class to clicked item
-                this.classList.add('active');
-                
-                // Get the data-action value
-                const action = this.getAttribute('data-action');
-                
-                // Hide all dynamic content items
-                marketingServicesDinamicContentItems.forEach(content => {
-                    content.classList.add('hidden');
-                });
-                
-                // Show the corresponding content
-                const targetContent = document.querySelector(`.marketing-services__dinamic-content-item[data-action="${action}"]`);
-                if (targetContent) {
-                    targetContent.classList.remove('hidden');
-                }
-            });
-        });
-    });
-</script>
 </html>

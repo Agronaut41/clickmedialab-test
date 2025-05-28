@@ -7,8 +7,8 @@
     "build:js": "esbuild src/index.js --outfile=web/dist/index.min.js --minify",
     "build": "npm run build:scss && npm run build:js",
 
-    "watch:scss": "sass --watch styles/main.scss:web/dist/index.css --style=compressed",
-    "watch:js": "esbuild src/index.js --outfile=web/dist/index.min.js --minify --watch",
+    "watch:scss": "sass --watch src/main.scss:web/dist/index.css --style=compressed",
+    "watch:js": "esbuild src/main.js --bundle --outfile=web/dist/index.min.js --minify --watch",
     "watch": "concurrently \"npm run watch:scss\" \"npm run watch:js\""
   },
   "repository": {
