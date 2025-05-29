@@ -1,0 +1,144 @@
+.main-services {
+    background-image: url('../../assets/images/bg-services.svg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        width: 590px;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 40px;
+
+        &-highlight {
+            color: #FF5001;
+        }
+    }
+
+    &__description {
+        width: 600px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #525252;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        margin-top: 32px;
+        gap: 16px;
+    }
+
+    &__item {
+        display: flex;
+        border-radius: 16px;
+        border: 1px solid #E3E3E3;
+        padding: 12px;
+        align-items: center;
+        gap: 8px 100px;
+        width: 1080px;
+        justify-content: end;
+
+        &:nth-child(2) {
+            width: 1120px;
+        }
+
+        &:nth-child(3) {
+            width: 1160px;
+        }
+
+        &:nth-child(4) {
+            width: 1200px;
+        }
+
+        &:nth-child(5) {
+            width: 1232px;
+        }
+
+        &-title {
+            text-align: right;
+            width: 270px;
+        }
+
+        &-link {
+            display: flex;
+            gap: 4px;
+            padding: 4px 8px;
+            background-color: #F7F7F7;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #525252;
+            width: fit-content;
+            height: fit-content;
+
+            &:hover {
+                background-color: #FF5001;
+                color: #fff;
+
+                img {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+
+        &-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            grid-auto-flow: column;
+            gap: 8px 100px;
+            width: 660px;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        background-image: none;
+        
+        &__content {
+            flex-direction: column;
+        }
+
+        &__title,
+        &__description {
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 30px;
+        }
+
+        &__item {
+            width: 100% !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &-title {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            &-title,
+            &-list {
+                width: 100%;
+            }
+        }
+    }
+}
